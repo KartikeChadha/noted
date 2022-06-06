@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702565686639",
+    "project_id": "noted-kartike",
+    "storage_bucket": "noted-kartike.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702565686639:android:d21c1c2197e190040a5c9a",
+        "android_client_info": {
+          "package_name": "com.kartike.noted"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702565686639-t0kk5g075qn300ghqaip8hcdn6pfv91d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTzlHCX3kEmAvA-YdsrRuT2kDJLHbaatk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702565686639-t0kk5g075qn300ghqaip8hcdn6pfv91d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
