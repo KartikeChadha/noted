@@ -82,7 +82,7 @@ class FirebaseAuthProvider implements AuthProvider {
       } else {
         throw GenericAuthException();
       }
-    } catch (e) {
+    } catch (_) {
       throw GenericAuthException();
     }
   }
