@@ -4,6 +4,7 @@ import 'package:noted/constants/routes.dart';
 import 'package:noted/enums/menu_action.dart';
 import 'package:noted/services/auth/auth_service.dart';
 import 'package:noted/services/crud/notes_service.dart';
+import 'package:noted/widgets/drawer.dart';
 
 class NotesView extends StatefulWidget {
   const NotesView({Key? key}) : super(key: key);
@@ -32,8 +33,14 @@ class _NotesViewState extends State<NotesView> {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 207, 179, 255),
         appBar: AppBar(
-          title: const Text('Main UI'),
+          title: const Text('Notes'),
           actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(newNoteRoute);
+              },
+              icon: const Icon(Icons.add),
+            ),
             PopupMenuButton<MenuAction>(
               onSelected: (value) async {
                 switch (value) {
@@ -61,6 +68,7 @@ class _NotesViewState extends State<NotesView> {
             )
           ],
         ),
+        drawer: NavDrawer(),
         body: FutureBuilder(
           future: _notesService.getOrCreateUser(email: userEmail),
           builder: (context, snapshot) {
