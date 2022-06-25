@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:noted/constants/routes.dart';
 import 'package:noted/enums/menu_action.dart';
 import 'package:noted/services/auth/auth_service.dart';
+import 'package:noted/utilities/dialogs/logout_dialog.dart';
 import 'package:noted/views/notes/notes_view.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -24,7 +25,7 @@ class NavDrawer extends StatelessWidget {
             leading: const Icon(Icons.logout_sharp),
             title: const Text('Logout'),
             onTap: () async {
-              final shouldLogout = await showLogOutDiaglog(context);
+              final shouldLogout = await showLogOutDialog(context);
 
               if (shouldLogout) {
                 await AuthService.firebase().logOut();
