@@ -72,7 +72,7 @@ class FirebaseAuthProvider implements AuthProvider {
       if (user != null) {
         return user;
       } else {
-        throw UserNotFoundAuthException();
+        throw UserNotLoggedInAuthException();
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -82,7 +82,7 @@ class FirebaseAuthProvider implements AuthProvider {
       } else {
         throw GenericAuthException();
       }
-    } catch (_) {
+    } on Exception catch (_) {
       throw GenericAuthException();
     }
   }
