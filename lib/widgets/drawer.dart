@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:noted/constants/routes.dart';
 import 'package:noted/enums/menu_action.dart';
 import 'package:noted/services/auth/auth_service.dart';
+import 'package:noted/services/auth/bloc/auth_bloc.dart';
+import 'package:noted/services/auth/bloc/auth_event.dart';
 import 'package:noted/utilities/dialogs/logout_dialog.dart';
 import 'package:noted/views/notes/notes_view.dart';
 
@@ -26,14 +29,10 @@ class NavDrawer extends StatelessWidget {
             title: const Text('Logout'),
             onTap: () async {
               final shouldLogout = await showLogOutDialog(context);
-
               if (shouldLogout) {
-                await AuthService.firebase().logOut();
-                // ignore: use_build_context_synchronously
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                  loginRoute,
-                  (_) => false,
-                );
+                context.read<AuthBloc>().add(
+                      const AuthEventLogout(),
+                    );
               }
             },
           ),
